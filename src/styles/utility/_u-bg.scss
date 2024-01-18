@@ -1,4 +1,6 @@
 @use "../settings" as setting;
+@use "../tools" as tool;
+@use "sass:map";
 
 .u-bg-primary {
   color: var(--c-text-on-fill);
@@ -18,4 +20,12 @@
 .u-bg-qua {
   color: var(--c-text-body);
   background: var(--c-bg-qua);
+}
+
+.u-bg-yellow {
+  background-color: rgba(map.get(setting.$pattern, myYellow), 0.4);
+
+  @include tool.darkmode {
+    background-color: rgb(map.get(setting.$darkPattern, myYellow), 0.4);
+  }
 }

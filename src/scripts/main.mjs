@@ -7,6 +7,9 @@ lazyMap();
 import { shareForm } from "./shareForm.js";
 shareForm();
 
+import { smoothScroll } from "./scroll.js";
+smoothScroll();
+
 import Swiper from "swiper";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
