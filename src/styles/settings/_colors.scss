@@ -356,6 +356,19 @@ $pattern: (
   myCyan: #55bef0,
 ) !default;
 
+$darkPattern: (
+  myBlue: #0a84ff,
+  myIndigo: #5e5ce6,
+  myPurple: #bf5af2,
+  myPink: #ff375f,
+  myRed: #ff453a,
+  myOrange: #ff9f0a,
+  myYellow: #ffd60a,
+  myGreen: #30d158,
+  myTeal: #40c8e0,
+  myCyan: #64d2ff,
+) !default;
+
 $colorLabels: (
   myPrimary: map.get($pattern, myBlue),
   myDanger: map.get($pattern, myRed),

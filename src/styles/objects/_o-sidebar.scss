@@ -17,8 +17,7 @@
     --gutter: 0;
   }
 
-  &--bio,
-  &--footer-logo {
+  &--bio {
     --gutter: #{setting.f-space-px(m)};
   }
 
@@ -56,16 +55,6 @@
 
   &__wide {
     min-width: min(setting.breakpoints(underm), 100%);
-  }
-
-  &__footLeft {
-    flex-basis: setting.breakpoints(unders);
-    min-width: fit-content;
-  }
-
-  &__footRight {
-    min-width: min(setting.breakpoints(unders), 100%);
-    margin-left: auto;
   }
 
   &__grow {

@@ -1,6 +1,38 @@
 @use "../settings" as setting;
+@use "sass:map";
+
+.c-float-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: setting.f-space-px(m);
+  padding-bottom: clamp(setting.f-space-px(m), setting.breakpoints(unders), setting.f-space-px(2xl));
+  color: var(--c-text-on-fill);
+  background: var(--c-brand-shade);
+  box-shadow: 0 0 2px var(--c-brand-shade);
+}
 
 .c-footer {
   position: sticky;
   top: 100svh;
+  padding-top: setting.f-space-px(m);
+  padding-bottom: setting.f-space-px(4xl);
+}
+
+.c-ft-item {
+  min-width: min(setting.breakpoints(unders), calc(50% - (setting.f-space-px(m) * 0.5)));
+}
+
+.c-ft-link {
+  padding: clamp(setting.f-space-px(s), (setting.breakpoints(overm)), setting.f-space-px(m))
+    clamp(0px, (setting.breakpoints(overm)), setting.f-space-px(m));
+  color: currentcolor;
+
+  &:hover,
+  &:focus {
+    background-color: color-mix(in oklab, var(--c-brand-shade), map.get(setting.$sys-light, primary) 15%);
+  }
 }

@@ -44,3 +44,23 @@
   text-align: center;
   text-shadow: 0 1px 6px rgba(map.get(setting.$sys-light, primary), 0.7);
 }
+
+.swiper-slide {
+  position: relative;
+
+  & .o-frame > * {
+    animation: zoomOut 5s ease-out infinite;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

@@ -66,12 +66,28 @@
 .c-gnav-link,
 .c-tel-link,
 .c-entry a,
-.c-text-link {
+.c-text-link,
+.c-logo-link,
+.c-menu-link,
+.c-sns-link,
+.c-ft-link {
   transition: all 0.25s ease;
 
   &:hover,
   &:focus {
     color: var(--c-text-hover);
+  }
+}
+
+.c-logo-link {
+  color: currentcolor;
+
+  &:hover,
+  &:focus {
+    svg {
+      opacity: 0.75;
+      transition: all 0.25s ease;
+    }
   }
 }
 
@@ -94,11 +110,26 @@
   }
 }
 
-.c-text-link {
-  &--full-wide {
-    display: block;
-    word-break: break-word;
-    overflow-wrap: break-word;
+.c-text-link--full-wide,
+.c-menu-link,
+.c-ft-link {
+  display: block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.c-menu-link {
+  padding: clamp(setting.f-space-px(s), (setting.breakpoints(overm)), setting.f-space-px(m))
+    clamp(
+      clamp(setting.f-space-px(m), setting.breakpoints(overm), setting.f-space-px(xl)),
+      setting.breakpoints(overs),
+      clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
+    );
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    background: var(--c-bg-qua);
   }
 }
 
@@ -157,4 +188,93 @@
   display: table;
   width: min(setting.breakpoints(overs), 100%);
   min-width: max-content;
+}
+
+.c-reviewer-pict {
+  width: setting.f-space-px(xl);
+}
+
+.c-review-stars {
+  gap: setting.f-space-px(xs);
+
+  &[data-rate="1"] {
+    > svg:first-of-type {
+      color: var(--c-brand-middle);
+    }
+  }
+
+  &[data-rate="2"] {
+    > svg:nth-of-type(-n + 2) {
+      color: var(--c-brand-middle);
+    }
+  }
+
+  &[data-rate="3"] {
+    > svg:nth-of-type(-n + 3) {
+      color: var(--c-brand-middle);
+    }
+  }
+
+  &[data-rate="4"] {
+    > svg:nth-of-type(-n + 4) {
+      color: var(--c-brand-middle);
+    }
+  }
+
+  &[data-rate="5"] {
+    > svg {
+      color: var(--c-brand-middle);
+    }
+  }
+}
+
+.c-lightbox-photo {
+  cursor: zoom-in;
+
+  & .o-frame > * {
+    transition: all 0.25s ease-out;
+  }
+
+  &:hover,
+  &:focus {
+    & .o-frame > * {
+      background: rgba(map.get(setting.$sys-light, scrim), 0.5);
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.c-faq {
+  cursor: pointer;
+
+  &__q,
+  &__a {
+    position: relative;
+    padding: 0 clamp(setting.f-font-remsize(m), (setting.breakpoints(overs)), setting.f-font-remsize(l));
+
+    &::before {
+      position: absolute;
+      left: 0;
+      font-family: setting.$font-family-en-condensed;
+      font-size: clamp(setting.f-font-remsize(m), (setting.breakpoints(overs)), setting.f-font-remsize(l));
+      font-weight: setting.f-fontweight(b);
+    }
+  }
+
+  &__q {
+    &::before {
+      top: 0;
+      color: var(--c-button-normal);
+      content: "Q";
+    }
+  }
+
+  &__a {
+    &::before {
+      top: calc(setting.f-font-remsize(m) * 0.5);
+      color: var(--c-status-alert);
+      content: "A";
+    }
+  }
 }

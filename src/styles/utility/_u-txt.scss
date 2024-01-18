@@ -1,4 +1,6 @@
 @use "../settings" as setting;
+@use "../tools" as tool;
+@use "sass:map";
 
 @mixin txtSize() {
   @each $key, $name in setting.$fontRemSize {
@@ -82,9 +84,13 @@
 .u-text-underline {
   text-decoration: underline;
   text-decoration-thickness: 0.5em;
-  text-decoration-color: rgba(var(--c-warning) 0.4);
+  text-decoration-color: rgba(map.get(setting.$pattern, myYellow), 0.4);
   text-underline-offset: -0.2em;
   text-decoration-skip-ink: none;
+
+  @include tool.darkmode {
+    text-decoration-color: rgb(map.get(setting.$darkPattern, myYellow), 0.4);
+  }
 }
 
 .u-text-trim {
